@@ -7,9 +7,6 @@ const truncateTables = async () => {
   await AppDataSource.synchronize();
 }
 
-/**
- * 複数レコードを同時Insert
- */
 const saveManyAtOnce = async () => {
   const userRepo = AppDataSource.manager.getRepository(User);
   const users = [
