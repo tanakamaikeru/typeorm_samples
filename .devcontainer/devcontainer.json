@@ -1,0 +1,10 @@
+{
+	"name": "typeorm-sample",
+	"dockerComposeFile": [
+		"docker-compose.yml"
+	],
+	"service": "node",
+	"workspaceFolder": "/workspace",
+	"settings": {},
+	"extensions": [],
+}
