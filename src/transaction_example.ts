@@ -65,18 +65,20 @@ const useQueryRunner = async () => {
 
   const userRepo = queryRunner.manager.getRepository(User);
 
-  await queryRunner.startTransaction();
+  // await queryRunner.startTransaction();
 
   try {
     await userRepo.save({ name: 'tanaka' });
     await userRepo.save({ name: 'satou' });
 
-    await queryRunner.commitTransaction();
+    // await queryRunner.commitTransaction();
 
-    const savedUsers = await AppDataSource.manager.getRepository(User).find();
+    await userRepo.save({ name: 'suzuki' });
+
+    const savedUsers = await userRepo.find();
     console.log('Selected users: ', savedUsers);
   } catch (error) {
-    await queryRunner.rollbackTransaction();
+    // await queryRunner.rollbackTransaction();
   } finally {
     // 作成したQueryRunnerは解放が必要
     await queryRunner.release();
